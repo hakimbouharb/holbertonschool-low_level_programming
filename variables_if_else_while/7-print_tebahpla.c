@@ -6,12 +6,12 @@
  */
 int main(void)
 {
-	int num = '0';
+	char teba = 'z';
 
-	while (num >= '9')
+	while (teba >= 'a')
 	{
-		putchar(num);
-		num++;
+		putchar(teba);
+		teba--;
 	}
 	putchar('\n');
 	return (0);
