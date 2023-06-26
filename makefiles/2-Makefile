@@ -2,7 +2,7 @@ all :
 	gcc    -c -o main.o main.c
 	CC = gcc
 SRC = main.c school.c
-OBJ = m.h
-all: $(SRC)
-	$(CC) $(SRC) $(OBJ) -o school
-
+OBJ = $(SRC:.c=.o)
+NAME = school
+all: $(OBJ)
+	$(CC)  $(OBJ) -o (school)
