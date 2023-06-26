@@ -1,0 +1,4 @@
+# build an executable named myprog from myprog.c
+  all: school.c
+    gcc main.c school.c -o school
+  
