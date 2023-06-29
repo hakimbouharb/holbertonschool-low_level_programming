@@ -1,30 +1,25 @@
-#include <limits.h>
 #include "main.h"
 
 /**
- * print_number - Prints an integer
- * @n: Integer to be printed
+ * print_triangle - Prints a triangle
+ * @size: Dimensions of triangle
  */
-void print_number(int n)
+void print_triangle(int size)
 {
-	int i;
+	int i, j, k;
 
-	if (n < 0)
+	if (size <= 0)
+		_putchar('\n');
+	for (i = 0; i < size; i++)
 	{
-		_putchar('-');
-	}
-	for (i = 1000000000; i > 0; i /= 10)
-	{
-		if (n / i)
+		for (j = size - 1; j > i; j--)
 		{
-			if ((n / i) % 10 < 0)
-				_putchar(-(n / i % 10) + '0');
-			else
-				_putchar((n / i % 10) + '0');
+			_putchar(' ');
 		}
-		else if (n / i == 0 && i == 1)
+		for (k = 0; k <= i; k++)
 		{
-			_putchar(n / i % 10 + '0');
+			_putchar('#');
 		}
+		_putchar('\n');
 	}
 }
