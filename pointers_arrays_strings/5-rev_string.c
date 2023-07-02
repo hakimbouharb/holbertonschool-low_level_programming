@@ -1,32 +1,23 @@
 #include "main.h"
 
 /**
- * _strlen - Returns the length of a string
- * @s: Variable being evaluated
- *
- * Return: Length of string
+ * rev_string - reverse a string
+ * @s: char array string type
  */
-int _strlen(char *s)
-{
-	int i = 0;
 
-	while (*s++)
-		i++;
-	return (i);
-}
-/**
- * rev_string - Reverses a string
- * @s: Array being reversed
- */
 void rev_string(char *s)
 {
-	int i, len, tmp;
+	int i, c, l;
+	char h;
 
-	len = _strlen(s) - 1;
-	for (i = 0; i < (len / 2); i++)
+	for (i = 0; s[i] != '\0'; i++)
+		;
+
+	l = i;
+	for (i--, c = 0; c < l / 2; i--, c++)
 	{
-		tmp = s[i];
-		s[i] = s[len - i];
-		s[len - i] = tmp;
+		h = s[c];
+		s[c] = s[i];
+		s[i] = h;
 	}
 }
