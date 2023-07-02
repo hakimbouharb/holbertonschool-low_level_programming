@@ -2,19 +2,17 @@
 #include <stdio.h>
 
 /**
- * print_array - Prints n elements of an array of integers
- * @a: Array to be used
- * @n: Size of array
+ * main - check the code
+ *
+ * Return: Always 0.
  */
-void print_array(int *a, int n)
+int main(void)
 {
-	int i;
+    char s1[98];
+    char *ptr;
 
-	for (i = 0; i < n; i++)
-	{
-		printf("%i", a[i]);
-		if (i < n - 1)
-			printf(", ");
-	}
-	printf("\n");
+    ptr = _strcpy(s1, "First, solve the problem. Then, write the code\n");
+    printf("%s", s1);
+    printf("%s", ptr);
+    return (0);
 }
