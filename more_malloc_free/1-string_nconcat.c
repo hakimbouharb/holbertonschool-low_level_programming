@@ -1,41 +1,44 @@
-#include "main.h"
 #include <stdlib.h>
+#include <string.h>
 /**
- * string_nconcat - Concatenates two strings using at
- * most inputted number of bytes.
- * @s1: The first string.
- * @s2: The second string.
- * @n: The maximum number of bytes of s2 to concatenate to s1.
- *
- * Return: If function fails - NULL.
- * Otherwise - a pointer to the concatenated space in memory.
- */
+ * string_nconcat - function that concatenates two strings.
+ * given as a parameter
+ * @s1: string to copy it
+ * @s2: string to copy it
+ * @n: first n bytes of s2
+ * Return: cpy
+*/
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	char *concat;
-	unsigned int len = n, index;
+	char *cpy;
+	int size, i;
+	unsigned int j;
 
 	if (s1 == NULL)
 		s1 = "";
-
 	if (s2 == NULL)
 		s2 = "";
+	size = strlen(s1);
+	size += n;
 
-	for (index = 0; s1[index]; index++)
-		len++;
+	cpy = (char *) malloc(sizeof(char) * (size + 1));
 
-	concat = malloc(sizeof(char) * (len + 1));
-
-	if (concat == NULL)
+	if (cpy == NULL)
 		return (NULL);
-	len = 0;
 
-	for (index = 0; s1[index]; index++)
-		concat[len++] = s1[index];
+	for (i = 0; s1[i]; i++)
+	{
+		cpy[i] = s1[i];
+	}
 
-	for (index = 0; s2[index] && index < n; index++)
-		concat[len++] = s2[index];
+	for (j = 0; j < n; j++)
+	{
+		cpy[i] = s2[j];
+		i++;
+	}
+	cpy[i] = '\0';
 
-	concat[len] = '\n';
-	return (concat);
+	return (cpy);
+
+	free(cpy);
 }
